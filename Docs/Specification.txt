@@ -1,6 +1,6 @@
 BigBuddy is forum website made with
 	 - python
-	 - django
+	 - flask
 	 
 Features:
 	- log in/out system
