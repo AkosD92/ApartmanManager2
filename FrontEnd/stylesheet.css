@@ -23,7 +23,6 @@ body{
 
 #navbar{
     background-color: #333;
-    color: aqua;
 }
 
 #navbar ul{
@@ -37,7 +36,7 @@ body{
 
 #navbar a{
     color: rgb(101, 161, 136);
-    text-decoration: none;
+    text-decoration: underline;
     padding-right: 15px;
 }
 
@@ -63,6 +62,9 @@ body{
     margin-left: 20px;
     padding: 5px;
     border-left: rgb(11, 138, 0) solid;
+}
+.element-box p{
+    font-style: italic;
 }
 
 #main{
