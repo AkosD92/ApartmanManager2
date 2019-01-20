@@ -2,8 +2,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <title>Big Buddy</title>
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
     </head>
    
     <body>
@@ -36,23 +39,19 @@
         <div class="container">
             <section id="main">
                 <h1>Most recent topics and questions</h1>
-                <div class="element-box">
-                    <h2>Entry from the forum</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus ut leo in lorem ultricies lacinia. In auctor urna eget nisl fermentum,
-                        faucibus consequat leo sollicitudin. Duis ut dignissim erat, et posuere eros. Vivamus eget vehicula eros.
-                         Nulla ultrices orci quam, at suscipit sem tempor vel. Curabitur convallis viverra vestibulum. 
-                    </p>
+                <div class="element-box">                      
+                    {% block content %}
+                        <h2>{{ latestForum.title }}</h2>
+                        <p>{{ latestForum.content }}</p>
+                    
                 </div>
-                <br>
-                <div class="element-box">
-                        <h2>Entry from the questions</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus ut leo in lorem ultricies lacinia. In auctor urna eget nisl fermentum,
-                            faucibus consequat leo sollicitudin. Duis ut dignissim erat, et posuere eros. Vivamus eget vehicula eros.
-                             Nulla ultrices orci quam, at suscipit sem tempor vel. Curabitur convallis viverra vestibulum. 
-                        </p>
-                    </div>
+                <br>  
+                <div class="element-box">                      
+                    
+                        <h2>{{ latestQuestion.title }}</h2>
+                        <p>{{ latestQuestion.content }}</p>
+                    {% endblock content%}
+                    </div>             
             </section>
 
             <aside id="sidebar">
@@ -66,11 +65,11 @@
                         <label>E-mail address</label>
                         <input type="text" email1=email1>
                     </div>
-                    <div class="form-group">
-                        <label>Verify E-mail</label>
-                        <input type="text" email2=email2>
-                    </div>
-                    <input class="button" type="submit" value="Submit" name=""> 
+                    <br>
+                    <input class="button" type="submit" value="Log In" name="">
+                    <br>
+                    <br>
+                    <input class="button" type="submit" value="Create Account" name="">
                 </form>
 
             </aside>
