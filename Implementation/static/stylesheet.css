@@ -48,6 +48,10 @@ body{
     margin-bottom: 30px;
 }
 
+.links{
+    margin-left: 10px;
+}
+
 #showcase h1{
     color:rgb(224, 243, 224);
     font-size: 30px;
