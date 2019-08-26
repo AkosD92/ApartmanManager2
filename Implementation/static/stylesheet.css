@@ -1,4 +1,4 @@
-body{
+ body{
     background-color: azure;
     color: #333;
     font-family: sans-serif, Helvetica; 
@@ -83,7 +83,7 @@ body{
     float: right;
     width: 30%;
     box-sizing: border-box;
-    padding:10 10px;
+    padding:10px 10px;
 }
 
 .login-form .form-group{

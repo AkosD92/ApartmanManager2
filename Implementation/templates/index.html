@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <title>Big Buddy</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
     </head>
    
@@ -38,12 +39,21 @@
 
         <div class="container">
             <section id="main">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 <h1>Most recent topics and questions</h1>
-                <div class="element-box">                      
+                <div class="element-box">
                     {% block content %}
                         <h2>{{ latestForum.title }}</h2>
                         <p>{{ latestForum.content }}</p>
-                    
+
                 </div>
                 <br>  
                 <div class="element-box">                      
@@ -56,26 +66,30 @@
 
             <aside id="sidebar">
                 <h2>Log-in or create an account</h2>
-                <form class="login-form">
-                    <div class="form-group">
-                        <label>User name</label>
-                        <input type="text" name=name>
-                    </div>
-                    <div class="form-group">
-                        <label>E-mail address</label>
-                        <input type="text" email1=email1>
-                    </div>
-                    <br>
-                    <input class="button" type="submit" value="Log In" name="">
-                    <br>
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <div class="form-group">
+                            {{form.email.label(class="form-control-label")}}
+                            {{form.email(class="form-control form-control-lg")}}
+                        </div>
+                        <div class="form-group">
+                            {{form.password.label(class="form-control-label")}}
+                            {{form.password(class="form-control form-control-lg")}}
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-outline-info")}}
+                        </div>
                     <br>
                     <div class="links">
                         <a href="http://localhost:5000/register">Create Account</a>
-                    </div>              
+                    </div>
                 </form>
 
             </aside>
         </div>
+
 
         <footer id="main-footer">
             <p>Copyright &copy; Big Buddy 2019</p>
