@@ -1,9 +1,0 @@
-Create an environment variable to select the python file to serve
-set FLASK_APP=BigBuddy.py
-
-Set debug mode
-set FLASK_DEBUG=1
-
-Start serving (where file is located)
-flask run
-
